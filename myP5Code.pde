@@ -1,11 +1,13 @@
 //🟢Setup Procedure - Runs Once to Set The Canvas
 void setup() {
-    size(400, 400); 
+    size(920, 400); 
+       
+  
 }
 
 //🎯Variable Declarations Go Here
-var fireworkX = 20;
-
+var xMove = 0;
+var yMove = 0;
 //🟢Draw Procedure - Runs on Repeat
 draw = function(){
  
@@ -13,13 +15,44 @@ draw = function(){
   
    if(mousePressed){
     showXYPositions();
-    
+    yMove -= 1;    
   }
+  else{
+    if(yMove < 0) {yMove +=1}
+  }
+  fill(242, 123, 189);
+  rect(2,300,1000,700);
+  noStroke();
+  fill(71, 102, 59);
   
+  rect(10+xMove,250+yMove,20,50);
+    rect(30+xMove,260+yMove,30,15);
+        rect(-20+xMove,260+yMove,30,15);
+            rect(45+xMove,240+yMove,15,20);
+                   rect(-20+xMove,270+yMove,15,20);
+    strokeWeight(1);
+    stroke(0,0,0);
+    fill(166, 174, 191);
+    arc(300, 300, 40, 40,radians(180), radians(360));
+    arc(150, 300, 40, 40,radians(180), radians(360));
+    arc(450, 300, 40, 40,radians(180), radians(360));
+    arc(650, 300, 40, 40,radians(180), radians(360));
+    arc(850, 300, 40, 40,radians(180), radians(360));
+  
+    // check points
+    fill(255, 245, 116);
+    rect(200,100,30,30);
+    rect(350,100,30,30);
+    rect(550,100,30,30);
+    fill(22, 196, 127);
+    rect(800,100,70,50);
+    fill (141, 119, 171);
+    rect(800,100,10,200);
   //🎯Animation Code Goes Here
-  rect(fireworkX, 15, 10, 10);
+  xMove += 1
   
-  fireworkX = fireworkX + 1;
+ if(xMove > 1000){xMove = -50}
+ 
 
 }
 
